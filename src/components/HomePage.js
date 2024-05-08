@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -79,7 +78,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -100,7 +99,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -121,7 +120,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -142,7 +141,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -171,7 +170,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -194,7 +193,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -217,7 +216,7 @@ export default function HomePage() {
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >
@@ -235,12 +234,12 @@ export default function HomePage() {
             <p className="card-text">Rydeu Logistics UG</p>
             <p className="card-text">
               <small className="text-body-secondary">
-                By JP Morgan on {new Date().toGMTString()}
+                {new Date().toGMTString()}
               </small>
             </p>
             <a
               rel="noreferrer"
-              href="/"
+              href="/jobdetail"
               target="_blank"
               className="btn btn-sm btn-dark"
             >

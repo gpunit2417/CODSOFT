@@ -7,6 +7,7 @@ import CandidateDashboard from "./components/CandidateDashboard";
 import JobList from "./components/JobList.js";
 import JobDetails from "./components/JobDetails";
 import './App.css';
+import About from "./components/About.js";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route path="/candidatedashboard" component={CandidateDashboard} />
           <Route path="/joblist" component={JobList} />
+          <Route path="/about" component={About} />
           <Route path="/jobdetail" component={JobDetails} />
         </Router>
         <Footer />

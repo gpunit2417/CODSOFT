@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="container-fluid mx-auto">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <a href="/"><img
-              src="https://t4.ftcdn.net/jpg/05/13/72/29/360_F_513722905_SgxiGdjQZsdvP4ODmERsQGgW2bUwj1lT.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTocnntBpgsajtC4EtPIU5q7HjmKybIDupEWw&s"
               alt="JobLogo "
               height="50px"
               style={{ cursor: 'pointer' }}
@@ -32,12 +32,12 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <a href="/joblist" className="nav-link">
-                  Jobs
+                  Find Jobs
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/jobdetail" className="nav-link">
-                  See Details
+                <a href="/about" className="nav-link">
+                  About
                 </a>
               </li>
             </ul>
