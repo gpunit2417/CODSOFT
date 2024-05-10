@@ -5,9 +5,9 @@ import { Footer } from "./components/Footer";
 import HomePage from "./components/HomePage";
 import CandidateDashboard from "./components/CandidateDashboard";
 import JobList from "./components/JobList.js";
-import JobDetails from "./components/JobDetails";
 import './App.css';
 import About from "./components/About.js";
+import JobApplication from "./components/JobApplication.js";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="/candidatedashboard" component={CandidateDashboard} />
           <Route path="/joblist" component={JobList} />
           <Route path="/about" component={About} />
-          <Route path="/jobdetail" component={JobDetails} />
+          <Route path="/apply" component={JobApplication} />
         </Router>
         <Footer />
       </div>
