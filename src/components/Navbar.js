@@ -21,11 +21,6 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/apply" className="nav-link">
-                  Apply for a Job
-                </a>
-              </li>
-              <li className="nav-item">
                 <a href="/candidatedashboard" className="nav-link">
                   Candidate Dashboard
                 </a>
