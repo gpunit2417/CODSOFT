@@ -1,6 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
+import Button from "react-bootstrap/Button";
+import JobDetailModal from "./JobDetailModal";
+import jobsData from "./JobDetails";
 
 export default function HomePage() {
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
+
+  const handleSeeDetailsClick = (job) => {
+    setModalShow(true);
+    setSelectedJob(job);
+  };
+
+  const handleCloseModal = () => {
+    setModalShow(false);
+    setSelectedJob(null);
+  };
   return (
     <>
       <div style={{ padding: "150px", fontFamily: "cursive" }}>
@@ -63,190 +78,37 @@ export default function HomePage() {
         </h2>
       </div>
       <div
-        className="jobs d-flex"
+        className="jobs d-flex flex-wrap"
         style={{ backgroundColor: "lightgray", margin: "-8px 0 0 0" }}
       >
-        {/* ----------------job detail 1 ----------------*/}
-        <div className="card" style={{ margin: "40px 15px 30px 60px" }}>
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Online English Tutor</h5>
-            <p className="card-text">PlanetSpark</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
+        {jobsData.map((job) => (
+          <div
+            key={job.id}
+            className="card"
+            style={{ margin: "10px 10px 50px 50px"}}
+          >
+            <div className="card-body" style={{ width: "270px"}}>
+              <h5 className="card-title">{job.jobTitle}</h5>
+              <p className="card-text">{job.company}</p>
+              <p className="card-text"><b>Posted On:</b> {job.date}</p>
+              <Button
+                variant="sm"
+                btn-dark
+                size="sm"
+                onClick={() => handleSeeDetailsClick(job)}
+              >
+                See Details
+              </Button>
+            </div>
           </div>
-        </div>
-
-        {/* ----------------job detail 2---------------- */}
-        <div className="card" style={{ margin: "40px 15px 30px 30px" }}>
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Customer Service Executive</h5>
-            <p className="card-text">Paisabazaar</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-
-        {/* ----------------job detail 3---------------- */}
-        <div className="card" style={{ margin: "40px 15px 30px 30px" }}>
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Associate Center Manager</h5>
-            <p className="card-text">Cultfit Healthcare Pvt. Ltd.</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-
-        {/* ----------------job detail 4 ----------------*/}
-        <div className="card" style={{ margin: "40px 15px 30px 30px" }}>
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Customer Service Associate</h5>
-            <p className="card-text">Saregama India Ltd.</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="jobs d-flex"
-        style={{ backgroundColor: "lightgray", height: "300px" }}
-      >
-        {/* ----------------job detail 5---------------- */}
-        <div
-          className="card"
-          style={{ margin: "5px 15px 5px 60px", maxHeight: "200px" }}
-        >
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">English Teacher</h5>
-            <p className="card-text">PlanetSpark</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-        {/* ----------------job detail 6---------------- */}
-        <div
-          className="card"
-          style={{ margin: "5px 15px 5px 30px", maxHeight: "200px" }}
-        >
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Wordpress Developer</h5>
-            <p className="card-text">The Learn Cloud</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-        {/* ----------------job detail 7---------------- */}
-        <div
-          className="card"
-          style={{ margin: "5px 15px 5px 30px", maxHeight: "200px" }}
-        >
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Backend Development</h5>
-            <p className="card-text">Qualyval</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
-        {/* ----------------job detail 8 --------------------------------*/}
-        <div
-          className="card"
-          style={{ margin: "5px 15px 5px 30px", maxHeight: "200px" }}
-        >
-          <div className="card-body" style={{ width: "270px" }}>
-            <h5 className="card-title">Frontend Development</h5>
-            <p className="card-text">Rydeu Logistics UG</p>
-            <p className="card-text">
-              <small className="text-body-secondary">
-                {new Date().toGMTString()}
-              </small>
-            </p>
-            <a
-              rel="noreferrer"
-              href="/jobdetail"
-              target="_blank"
-              className="btn btn-sm btn-dark"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
+        ))}
+        <JobDetailModal
+          show={modalShow}
+          onHide={handleCloseModal}
+          title={selectedJob?.jobTitle}
+          description={selectedJob?.jobDescription}
+          applyDate={selectedJob?.ApplyBy}
+        />
       </div>
       <a
         href="/joblist"
