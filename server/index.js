@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const User = require("./models/User");
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken");
 
 // Create Express app
 const app = express();
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 });
 
 const salt = bcrypt.genSaltSync(10);
+const secret = "fajhjjjsfahuikjakh";
 
 app.post("/signup", async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
@@ -51,15 +53,15 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { firstname, email, password } = req.body;
   const userDoc = await User.findOne({ email });
   const passOk = bcrypt.compareSync(password, userDoc.password);
   if (passOk) {
-    jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
+    jwt.sign({ firstname, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) throw err;
       res.cookie("token", token).json({
         id: userDoc._id,
-        username,
+        firstname,
       });
     });
   } else {
