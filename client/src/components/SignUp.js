@@ -22,10 +22,10 @@ export default function SignUp() {
           alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
         }
 
-        // setFirstname("");
-        // setLastname("");
-        // setEmail("");
-        // setPassword("");
+        setFirstname("");
+        setLastname("");
+        setEmail("");
+        setPassword("");
   };
 
   return (
