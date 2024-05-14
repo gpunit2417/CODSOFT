@@ -22,7 +22,8 @@ const Login = () => {
       if (response.ok) {
         // Login successful
         localStorage.setItem("token", data.token);
-        history.push("/dashboard"); // Redirect to dashboard after login
+        history.push("/"); // Redirect to dashboard after login
+        window.location.reload();
       } else {
         // Login failed
         setError(data.message);
@@ -109,3 +110,4 @@ const Login = () => {
 };
 
 export default Login;
+
