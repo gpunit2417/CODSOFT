@@ -207,5 +207,18 @@ const jobs = [
     jobDescription: "About the job Key responsibilities: 1. Develop responsive user interface components using React.js 2. Collaborate with the design team to translate UI/UX designs into code 3. Optimize applications for maximum performance across a wide range of web-capable devices and browsers 4. Work closely with other team members and stakeholders to gather and understand requirements 5. Participate in code reviews and offer constructive feedback 6. Troubleshoot, debug and resolve software defects and issues 7. Stay abreast of emerging technologies and industry trends to ensure continuous improvement of our applications Skill(s) required HTML&CSS React ReactJS Redux REST API",
     ApplyBy: "06-05-2024",
   },
+  {
+    id: 17,
+    jobTitle: "Senior ReactJS Developer",
+    company: "Bharat Hyundai",
+    jobType: "Full-Time/Part-Time",
+    location: "Work From Home",
+    startDate: "After 15-06-2024",
+    experience: "3+ years",
+    stipend: "9LPA",
+    date: "23-04-2024",
+    jobDescription: "About the job Key responsibilities: 1. Develop responsive user interface components using React.js 2. Collaborate with the design team to translate UI/UX designs into code 3. Optimize applications for maximum performance across a wide range of web-capable devices and browsers 4. Work closely with other team members and stakeholders to gather and understand requirements 5. Participate in code reviews and offer constructive feedback 6. Troubleshoot, debug and resolve software defects and issues 7. Stay abreast of emerging technologies and industry trends to ensure continuous improvement of our applications Skill(s) required HTML&CSS React ReactJS Redux REST API",
+    ApplyBy: "06-05-2024",
+  },
 ];
 export default jobs;

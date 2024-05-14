@@ -6,6 +6,7 @@ import jobsData from "./AllJob";
 export default function JobList(props) {
   const [modalShow, setModalShow] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [jobs, setJobs] = useState(jobsData);
 
   const handleSeeDetailsClick = (job) => {
     setModalShow(true);
@@ -15,6 +16,14 @@ export default function JobList(props) {
   const handleCloseModal = () => {
     setModalShow(false);
     setSelectedJob(null);
+  };
+
+  const handleDeleteJob = (jobId) => {
+    console.log("Job is getting deleted", jobId)
+    const updatedJobs = jobsData.filter((job) => job.id !== jobId);
+    setJobs(updatedJobs);
+    console.log(updatedJobs)
+    // You can also send a request to the server to delete the job
   };
 
   return (
@@ -104,6 +113,14 @@ export default function JobList(props) {
               >
                 See Details
               </Button>
+              <Button
+              variant="danger"
+              size="sm"
+              style={{ marginLeft: "5px" }}
+              onClick={() => handleDeleteJob(job.id)}
+            >
+              Delete
+            </Button>
             </div>
           </div>
         ))}
