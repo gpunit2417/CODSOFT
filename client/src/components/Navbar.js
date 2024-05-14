@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const Navbar = ({ allJobs }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token")); // Check if user is logged in
   const history = useHistory();
 
   const handleSearch = (e) => {
@@ -23,6 +24,12 @@ const Navbar = ({ allJobs }) => {
       pathname: "/search",
       state: { jobs: filteredJobs },
     });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear the login token
+    setIsLoggedIn(false); // Update the login state
+    history.push("/"); // Redirect to homepage after logout
   };
 
   useEffect(() => {
@@ -64,11 +71,19 @@ const Navbar = ({ allJobs }) => {
                   About
                 </a>
               </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link">
-                  Login
-                </a>
-              </li>
+              {isLoggedIn ? ( // Render logout button if user is logged in
+                <li className="nav-item">
+                  <button className="nav-link" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <a href="/login" className="nav-link">
+                    Login
+                  </a>
+                </li>
+              )}
               <li className="nav-item">
                 <a href="/signup" className="nav-link">
                   SignUp
@@ -94,40 +109,42 @@ const Navbar = ({ allJobs }) => {
                 </button>
               </a>
             </form>
-            <ul className="navbar-nav mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Profile
-                </a>
-                <ul
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="navbarDropdown"
-                >
-                  <li className="nav-item">
-                    <a href="/candidatedashboard" className="dropdown-item">
-                      Candidate Dashboard
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="/employerdashboard" className="dropdown-item">
-                      Employer Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/logout">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            {isLoggedIn && ( // Render profile dropdown if user is logged in
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="/"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Profile
+                  </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li className="nav-item">
+                      <a href="/candidatedashboard" className="dropdown-item">
+                        Candidate Dashboard
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a href="/employerdashboard" className="dropdown-item">
+                        Employer Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <button className="dropdown-item" onClick={handleLogout}>
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
